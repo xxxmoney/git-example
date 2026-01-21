@@ -59,6 +59,8 @@
     - For very first *commits*, it's very usual to name them "Initial commit"
 - So let's do it now - let's turn our current *staged* into new *commit*
     - `git commit -m "Initial commit"`
+- Also to make sure our example works as intended, run this command, more on branches later
+    - `git branch -M master`
 - And behold - we have successfully created our first saved version in history!
 
 ## Lets try some restore
@@ -275,5 +277,26 @@
     - We have one new commit, it takes this commit and adds it to the server *repository*, updating the "master" *branch* pointer there
     - Once this is confirmed, the local snapshot - "origin/master" is updated (the pointer changes)
 - And so at this point, the local repository and remote are 'SAME GREAT AGAIN'
+
+## Cloning the server repo
+- What's amazing about git is that multiple people can work on it, have their local version of *repository*
+- Let's simulate developer no. 2 - someone who *clones* the repository locally, then does some change
+    - Go up the folders
+        - `cd ..`
+    - Create new folder
+        - `mkdir sample-repo-02`
+    - Go into that folder
+        - `cd sample-repo-02`
+- Now we have an empty folder, ready to be filled with the *repository*
+- We can simply litreally *clone* the server *repository*
+    - `git clone ../sample-repo-server .`
+        - Command structure is `git clone [SERVER_PATH] [LOCAL_PATH]`
+            - The dot means into current directory
+- And viola - if we check the current directory, the "sample-repo-02"
+    - `ls`
+- We can see it HAS FILE! (and also the .git folder)
+- Woah! So we have *cloned* it successfully
+- This repository also has defined *remotes* as bonus, see
+    - `git remote -v`
 
 
