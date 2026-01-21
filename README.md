@@ -41,7 +41,7 @@
 - If you look at the tab in VS Code, you can now see the *file.txt* in *changes* and *staging*
     - Why is that so, right?
 - Thats because it works in snapshots
-    - With git add file.txt, we have essentially created a local snapshot of the file
+    - With git add *file.txt*, we have essentially created a local snapshot of the file
 - If we edit the file, new *untracked* file is present again, or rather its part
 - We can run the command again to add the current version of our file to the git
     - `git add file.txt`
@@ -66,3 +66,21 @@
     - Lets try adding new line "Another update"
 - The file should be now in *changes* - this change is NOT *tracked*
 - Lets track it with `git add file.txt`
+- Now, what if we want to undo our *staged* changes
+- Lets simply remove the *staged*
+    - `git restore --staged file.txt`
+- Now we have those back in the *changes*
+    - If we want to remove the *changes*, simply run `git restore file.txt`
+- Notice if we do that, now our file is in the state of the last commit we made - nice, innit?
+
+## Lets do more commits
+- Commits work simply said as a "Linked list"
+    - Meaning each commit has some parent (except the first one)
+- Lets try updating our file and this time commiting it
+    - Add new line with "Really an update" to the *file.txt*
+    - We *stage* the changes with `git add file.txt`
+    - Now, when we have *staged* changes, we can create a commit
+    - `git commit -m "Update file.txt"`
+- Amazing - now in the VS Code we should see the two commits
+    - Our latest "Update file.txt" and its parent "Initial commit"
+
