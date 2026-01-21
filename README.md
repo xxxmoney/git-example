@@ -309,4 +309,23 @@
     - `git push -u origin master`
 - Great, now our changes as developer 02 are on the server
 
-
+## How to get the lastest GOOD STUFF?
+- Now let's go back onto our repo, 'how sweet home'
+    - `cd ..`
+    - `cd sample-repo`
+- As we can see, we don't have the latest commit yet, we need to *fetch* it first
+- Fetching is basically asking server for latest snapshop of the server
+    - `git fetch`
+- Well amazing, but we STILL DON'T have the file, why?
+    - That's because the *fetch* updates the snapshots of the *branches*, so the "origin/master" *branch*
+- If we want to have the changes in our "master", we need to merge it
+- We can already do that, right?
+    - `git merge origin/master`
+- Woooow - now we have the changes - AMAZING! - but what just happened?
+- Well, we have simply merged the snapshop into our "master"
+    - And because its a simple *merge*, git used *Fast-Forward*
+- Anywho, we have successfully played a role as developer 02, *cloned* the *repository*, made a change which we *pushed*, and then back at our original *repository*, we have *fetched* and *merged* the changes - GREAT!
+- Side not - the `git fetch` and `git merge origin/master` have a shortcut command
+    - `git pull`
+        - You can also specify the *branch* and remote so `git pull origin master` for example
+        - But if you want to *pull* just the snapshot and merge it, you can use just the `git pull` 
