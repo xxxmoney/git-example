@@ -107,3 +107,24 @@
     - And there are many feature, your work on feature 1 and suddenly, you would like to work on feature 2 and hop a quickly from feature to feature
 - Well, with this, you can - you can have many *branches* where at each branch you do different work
     - You can have different commits on each branch - so the work is segregated
+- Pretty neat, eh?
+
+## Lets try branching
+- Cool, now we know we have "master" *branch*, but, how do we know that?
+- Introducting, `git status`
+    - This command tells us about the current *branch*, etc, try it
+- Firstly, let's talk about naming - usually, branches are named after what we do in said branhc
+- Typically, we have two types of things we work on
+    - feature - something new - like adding a form dialog, etc
+    - fix - fixing bugs, like website not responding when clicking on submit in form
+- Well, suppose we would like to create new *branch*, lets do it
+- Either command `git checkout -b "[BRANCH_NAME]"` or newer `git switch -c "[BRANCH_NAME]"`
+- Let's try making a *branch* named "feature-add-script-file"
+    - `git switch -c "feature-add-script-file"`
+- Well, not much changed, lets check the status
+    `git status`
+- And truly, you can see we are on different branch
+- As of now, the "master" and "feature-add-script-file" are pointing to the same commit
+
+## Commits in new branch
+- 
