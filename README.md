@@ -84,3 +84,22 @@
 - Amazing - now in the VS Code we should see the two commits
     - Our latest "Update file.txt" and its parent "Initial commit"
 
+## Lets talk branches
+- Great, now we have *commits*
+- We know they are just snapshots of our files
+    - A snapshot from some time with some name
+- Now, suppose we would like some "alias" for the "linked list snake" we work on
+    - Essentially, we would like to make new and new *commits* and always call the "linked list snake" the same
+- This is what *branches* are for - essentially, its just a nickname for a *commit*
+- There is already an existing default *branch*, named "master" (or in some cases "main")
+- This whole time, we have been using the "master" *branch*
+- Lets imagine the "master" *branch* as a pointer
+    - When we created a *commit*, we created a snapshot (history version) of our files
+    - We have defined a new head for our "linked list snake"
+    - Git has automatically redefined our pointer of the "master" *branch*
+        - Before we made the second *commit*, "master" was pointing to "Initial commit"
+        - As we made the second commit, "master" is now pointing to "Update file.txt" 
+        - You can also see the commits and "master" *branch* name in the VS Code - Source Control - Graph
+- With this, when we commit, the "master" *branch* is always pointing to the head of the "linked list snake"
+
+
