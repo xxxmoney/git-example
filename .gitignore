@@ -1,0 +1,12 @@
+
+# This contains directories/files which should be ignored by git
+
+# For directories use the typical format with slahes
+output/stuff
+# Can also specify only the directory name
+output
+
+# Can be also used for specific files
+secret_config.json
+# Can also use the wildcard operator (this example takes all json files ending with _config.json)
+*_config.json
