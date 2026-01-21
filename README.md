@@ -299,4 +299,14 @@
 - This repository also has defined *remotes* as bonus, see
     - `git remote -v`
 
+## Commiting and pushing from 02
+- Now let's play a collegue which does some stuff in his local *repository*
+    - `echo "export const quakeInvSqrt = n => ((b) => ((f, i) => (f[0] = n, i[0] = 0x5f3759df - (i[0] >> 1), f[0] * (1.5 - (0.5 * n * f[0] * f[0]))))(new Float32Array(b), new Int32Array(b)))(new ArrayBuffer(4));" > square.js`
+    - `git add square.js`
+    - `git commit -m "Fast inverse square root"`
+- Great, now as a developer 02, we have *committed* the change into our local *repository*
+- But it's not on the server yet, how do we do that? *PUSH*
+    - `git push -u origin master`
+- Great, now our changes as developer 02 are on the server
+
 
