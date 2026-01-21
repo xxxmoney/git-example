@@ -357,3 +357,50 @@
     - `git push -u origin master`
 - We can check our GitHub *repository* now - we should see the new commit in there
 
+## Pull Request
+- This is all fun and games, but what about some rules and standards?
+    - We might not want everyone so commit directly into out "master"
+- Why? In bigger, production projects, etc - the "master" is the 'source of truth'
+    - Meaning if only want *reviewed* files in there
+- The process of the review is *Pull Request*, or *PR* shortly
+- *Pull Request* is essentialy from Point of View of server
+    - I as server am pulling someone's changes
+- Usually the workflow is as follows
+    - *Repository* has an established default *branch*, like "master" or "main"
+    - We can *clone* this *repository*, make our own feature or fix *branch* and *push* said *branch*
+        - But we usually can't *push* directly into "master" or "main"
+    - As we push the *branch*, the Pull Request is usually initiated, let's try it
+- Let's create new *branch*, make *commit* in it and *push* it
+    - `git switch -c fix-script-message`
+    - `echo "console.log('Hello world.');" > index.js`
+    - `git add .`
+    - `git commit -m "Fix script file"`
+    - `echo "console.log('Hello hello.');" > index.js`
+    - `git add .`
+    - `git commit -m "Update fix script file"`
+    - `git push -u origin fix-script-message`
+- When you now visit your GitHub *repository* page, you should see a button "Compare & pull request", click it
+- We will now see the *Pull Request* page
+    - Now there should be "base: master <- compare: fix-script-message"
+        - This just means - we will compare whats in "fix-script-message" we want to add to "master"
+    - Also a title box
+        - *Pull Request* can be named variously, it's good practice to name them with some convention
+            - "Merge [FROM_BRANCH] into [INTO_BRANCH]"
+            - So: "Merge fix-script-message to master" - let's name it this way
+        - Once we have it named "Merge fix-script-message to master" hit CREATE PULL REQUEST
+    - We should not wee a screen with information about the "Pull Request"
+    - Take a look at the "commits" tab or "files changed" tab
+    - Go back to the "conversation" tab
+        - There people can write comments - recommandations etc
+            - Comments can also be written for files in the "files changed" tab
+    - Great, we might be now happy with the *Pull Request*, let's finish it
+    - Click on "Merge pull request"
+        - There is now the commit message - good practice is to have defined names, like the branch
+            - So "Merge fix-script-message to master"
+    - With this, the *Pull Request* is finished, we can remove the branch on the server with button "Delete branch"
+- Now let's update our local *repository*
+    - `git switch master`
+    - `git branch -d fix-script-message`
+    - `git pull`
+- And WOW - we now have the *merged* *commit* from the *Pull Request* on our local *repository*, amazing!
+
