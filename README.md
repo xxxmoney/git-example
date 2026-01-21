@@ -47,3 +47,16 @@
     - `git add file.txt`
 - Now you should see our current file is in the *staged* again, hooray!
 
+## We have staged file, now what? COMMIT
+- We could repeat this process over and over again, but here's the catch
+    - We don't actually have any history - we just have the present *staged*
+- To create a version in history, we create *commit*    
+    -  Very simply commit is just *staging* which is saved with a name
+- To create a new commit, we use this format (do NOT run this yet)
+    - `git commit -m "[MESSSAGE]"`
+    - The message should be short, meaningful one, usually in present time
+    - For example "Add file" or "Update file"
+    - For very first *commits*, it's very usual to name them "Initial commit"
+- So let's do it now - let's turn our current *staged* into new *commit*
+    - `git commit -m "Initial commit"`
+- And behold - we have successfully created our first saved version in history!
