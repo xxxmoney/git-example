@@ -23,14 +23,17 @@
 ## Lets make some staging
 - Yeah, now what? We want to somehow use the history, the snapshots of our files, right?
 - Let's do it - firstly, lets try creating a new file
-    - With command `echo "My beatiful text content" > file.txt`
+    - With command `echo "My beatifull text content" > file.txt`
 - Great, but git doesn't know about our file - its like it "doesn't exist" for git
     - Files which are not known by git are called *untracked* files
         - Because git doesn't track them
     - If you use IDE like VS Code, you can see the file in *changes*
 - So, how do we make git track our *file.txt*?
-- Simply, we run `git add file.txt`
+- Simply, we run 
+    - `git add file.txt`
     - Now, you can see the file in the *staged*
+- It's also possible to run this on every file in the directory
+    - `git add .`
 - *Staged* changes are simply files which are ready to be commited
     - In other words ready to be made into a snapshot - into a "history version"
 
@@ -115,7 +118,7 @@
 - Cool, now we know we have "master" *branch*, but, how do we know that?
 - Introducting, `git status`
     - This command tells us about the current *branch*, etc, try it
-- Firstly, let's talk about naming - usually, branches are named after what we do in said branhc
+- Firstly, let's talk about naming - usually, branches are named after what we do in said *branch*
 - Typically, we have two types of things we work on
     - feature - something new - like adding a form dialog, etc
     - fix - fixing bugs, like website not responding when clicking on submit in form
@@ -167,7 +170,7 @@
 - Great, so now we have finished working on our feature
     - But, how do we "move" the changes from "feature-add-script-file" to "master"?
 - Introducing, *merge*
-- Imaggine it as making sure one 'linked list snake' catches up to the other
+- Imagine it as making sure one 'linked list snake' catches up to the other
     - Meaning we add some commits on top of it, basically
 - So now, we would like our "master" branch to have the *commits* froms "feature-add-script-file" on top
 - In this simple scenario, git can simply move the pointer
@@ -215,7 +218,7 @@
         - Focus on the first line "Merge branch 'feature-readme'
             - This is the name of the commit
         - Under this line, there are comments explaining this
-        - For now, just write `:wq` and hit ENTER
+        - For now, just write `:wq` and hit ENTER (command for VIM to save and close - WRITE, QUIT)
 - Essentially, what we are doing now is making a new commit with 2 parents
     - So far, our commits only had 1 parent, we need to preserve both 'snakes parts', so the commit has 2 parents
 - In the graph tab, you should now see a bit weirder history
@@ -226,6 +229,7 @@
 - Essentially, we have tied the snake back together
 - Also, let's remove the feature branch, as now we have it 'in master'
     - `git branch -d feature-readme`
+- Side note - sometimes, the *merges* are not so easy, *conflicts* can happen, but on that some other time
 
 ## Remotes, what's that?
 - Great, so now we have our master branch 'glorious yet again'
@@ -300,7 +304,7 @@
     - `git remote -v`
 
 ## Commiting and pushing from 02
-- Now let's play a collegue which does some stuff in his local *repository*
+- Now let's play a colleague which does some stuff in his local *repository*
     - `echo "export const quakeInvSqrt = n => ((b) => ((f, i) => (f[0] = n, i[0] = 0x5f3759df - (i[0] >> 1), f[0] * (1.5 - (0.5 * n * f[0] * f[0]))))(new Float32Array(b), new Int32Array(b)))(new ArrayBuffer(4));" > square.js`
     - `git add square.js`
     - `git commit -m "Fast inverse square root"`
@@ -314,7 +318,7 @@
     - `cd ..`
     - `cd sample-repo`
 - As we can see, we don't have the latest commit yet, we need to *fetch* it first
-- Fetching is basically asking server for latest snapshop of the server
+- Fetching is basically asking server for latest snapshot of the server
     - `git fetch`
 - Well amazing, but we STILL DON'T have the file, why?
     - That's because the *fetch* updates the snapshots of the *branches*, so the "origin/master" *branch*
@@ -322,10 +326,34 @@
 - We can already do that, right?
     - `git merge origin/master`
 - Woooow - now we have the changes - AMAZING! - but what just happened?
-- Well, we have simply merged the snapshop into our "master"
+- Well, we have simply merged the snapshot into our "master"
     - And because its a simple *merge*, git used *Fast-Forward*
 - Anywho, we have successfully played a role as developer 02, *cloned* the *repository*, made a change which we *pushed*, and then back at our original *repository*, we have *fetched* and *merged* the changes - GREAT!
 - Side not - the `git fetch` and `git merge origin/master` have a shortcut command
     - `git pull`
         - You can also specify the *branch* and remote so `git pull origin master` for example
         - But if you want to *pull* just the snapshot and merge it, you can use just the `git pull` 
+
+## Making the server REAL
+- So far, we have used a local server - just a folder, let's step this up
+- Firstly, setup an account on GitHub (https://github.com)
+- We then create a new repository - let's name it same as our folder - sample-repo
+    - Let's use the defaults
+    - One of the important ones is the visibility - that's if the repository is visible to only you (or chosen ones) or everyone
+- Once we have the repository set up, we can copy the link to the .git
+    - For example `https://github.com/[USERNAME]/sample-repo.git`
+- Now lets change our *remote* "origin" to this
+    - `git remote set-url origin https://github.com/[USERNAME]/sample-repo.git`
+- We can check if we set it up correctly
+    - `git remote -v`
+- Great, now we should have the connection set up, lets push our changes to GitHub
+    - `git push -u origin master`
+- Fantastic, now we have our *repository* on GitHub!
+- We could now work similarly - our colleague could do a similar thing, push changes, we could *pull* (*fetch* and *merge*), etc
+- Let's now try making a new *commit* and *pushing*
+    - `rm square.js`
+    - `git add .`
+    - `git commit -m "Remove square root script"`
+    - `git push -u origin master`
+- We can check our GitHub *repository* now - we should see the new commit in there
+
