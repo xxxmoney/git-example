@@ -225,4 +225,28 @@
 - Also, let's remove the feature branch, as now we have it 'in master'
     - `git branch -d feature-readme`
 
-
+## Remotes, what's that?
+- Great, so now we have our master branch 'glorious yet again'
+- But this is all fun and games, but what about the C O L L A B O R A T I O N?
+- Introducing *remotes* - a way to synchronise your local *repository* with different - usually on server
+    - This is basically just GitHub - it stores the .git folder on a server
+- Let's try this on local scale first
+- Let's go away from our *repository* for a bit 
+    - `cd ..`
+- Create new directory
+    - `mkdir sample-repo-server`
+- Go into the directory
+    - `cd sample-repo-server`
+- Initialise a bare *repository*
+    - `git init --bare`
+- Switch back to our repository
+    - `cd ..`
+    - `cd sample-repo`
+- We have now esentially made our little GitHub locally, great right?
+    - But the server repo is empty now - let's change it
+- Firstly, we need to define the server *repository* as our remote
+    - Remote meaning the server *repository* we will be synchronising with
+- Add the *remote* - we define a name for it, typically "origin"
+    - You can define the path as absolute or relative, I'll use relative in this example
+    - `git remote add origin ../sample-repo-server`
+- Great we have now successfully defined a *remote*
