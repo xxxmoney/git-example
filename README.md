@@ -88,19 +88,19 @@
 - Great, now we have *commits*
 - We know they are just snapshots of our files
     - A snapshot from some time with some name
-- Now, suppose we would like some "alias" for the "linked list snake" we work on
-    - Essentially, we would like to make new and new *commits* and always call the "linked list snake" the same
+- Now, suppose we would like some "alias" for the 'linked list snake' we work on
+    - Essentially, we would like to make new and new *commits* and always call the 'linked list snake' the same
 - This is what *branches* are for - essentially, its just a nickname for a *commit*
 - There is already an existing default *branch*, named "master" (or in some cases "main")
 - This whole time, we have been using the "master" *branch*
 - Lets imagine the "master" *branch* as a pointer
     - When we created a *commit*, we created a snapshot (history version) of our files
-    - We have defined a new head for our "linked list snake"
+    - We have defined a new head for our 'linked list snake'
     - Git has automatically redefined our pointer of the "master" *branch*
         - Before we made the second *commit*, "master" was pointing to "Initial commit"
         - As we made the second commit, "master" is now pointing to "Update file.txt" 
         - You can also see the commits and "master" *branch* name in the VS Code - Source Control - Graph
-- With this, when we commit, the "master" *branch* is always pointing to the head of the "linked list snake"
+- With this, when we commit, the "master" *branch* is always pointing to the head of the 'linked list snake'
 
 ## Great, but what are branches for?
 - Well, lets suppose we have a big project
@@ -134,7 +134,7 @@
     - Commit the file, something like `git commit -m "Add index.js file"`
 - Great, now we have our branch "feature-add-script-file" with a *commit* "Add index.js file"
     - What happened? We have created a new *commit*, said its parent is "Update file.txt"
-        - Also git set the head of the "linked list snake" of our branch to the latest commmit, so the "Add index.js file"
+        - Also git set the head of the 'linked list snake' of our branch to the latest commmit, so the "Add index.js file"
 
 ## Lets travel back in time, sort of
 - Well, this is great, but what if we now want to go back into our "master" - the one without the script file?
@@ -158,6 +158,27 @@
 - Repeating the process again, *stage* the file and commit
     - `git add index.js`
     - `git commit -m "Update script with new message"`
-- Great now our *branch* "has two commits"
+- Great now our *branch* 'has two commits'
     - Or rather, we are pointing to the latest commit
+
+## The MERGING, or not?
+- Great, so now we have finished working on our feature
+    - But, how do we "move" the changes from "feature-add-script-file" to "master"?
+- Introducing, *merge*
+- Imaggine it as making sure one 'linked list snake' catches up to the other
+    - Meaning we add some commits on top of it, basically
+- So now, we would like our "master" branch to have the *commits* froms "feature-add-script-file" on top
+- In this simple scenario, git can simply move the pointer
+    - Instead of saying "master" points to *commit* "Update file.txt", it now points to "Update script with new message"
+- Let's do it, firstly let's switch to "master" *branch*
+    - `git switch master`
+- Then we use the merge command
+    - `git merge feature-add-script-file`
+    - Wow, no way, we have the files - and more importantly our commits, 'in the' "master" *branch*
+- What happened is simple - we have just moved pointers
+    - "master" now points to the "Update script with new message" *commit*
+    - This is also called *Fast-Forward Merge*
+- Great, now our feature branch is not needed anymore, lets delete it
+    - `git branch -d feature-add-script-file`
+- Awesome, we have successfuly made our "master" 'GREAT AGAIN'
 
