@@ -182,3 +182,47 @@
     - `git branch -d feature-add-script-file`
 - Awesome, we have successfuly made our "master" 'GREAT AGAIN'
 
+## The TRUE merge
+- Great, but this is not ideal world, and changes happen all the time
+- Let's introduce a peculiar scenario
+    - Lets make a new *branch* - like feature-readme
+        - `git switch -c feature-readme`
+    - Lets make a README.md file in there, *stage* it and *commit* it
+        - `echo "#Great heading for a great readme" > README.md`
+        - `git add README.md`
+        - `git commit -m "Add readme"`
+    - Lets now move back to "master", lets make change to the file.txt and commit it
+        - `git switch master`
+        - `echo "Only this shall now be the content of text file" > file.txt`
+        - `git add file.txt`
+        - `git commit -m "Update text file content"`
+- We have now a peculiar state
+    - We have created two commits - "Add readme" and "Update text file content"
+- Now let's try merging the "feature-readme" into our "master"
+- Make sure you are in "master", check with `git status`
+    - If not already, use `git switch master`
+- Now lets merge it
+    - `git merge feature-readme`
+    - Oh no, what happened?
+- Now the situation is not so easy
+    - We cannot do the `Fast-Foward Merge`
+        - That's because it's not possible to just move the pointer
+            - We would loose the commit 'in master' if we moved the pointer to the commit in "feature-readme"
+- We need to do proper merge
+    - You should now see a 'weird' text
+        - Focus on the first line "Merge branch 'feature-readme'
+            - This is the name of the commit
+        - Under this line, there are comments explaining this
+        - For now, just write `:wq` and hit ENTER
+- Essentially, what we are doing now is making a new commit with 2 parents
+    - So far, our commits only had 1 parent, we need to preserve both 'snakes parts', so the commit has 2 parents
+- In the graph tab, you should now see a bit weirder history
+    - So far, we had only 'linear' snake, and now, we can see two paths there
+- We had to make sure we could preserve both *commits*
+    - Both of those commits had the same parent - "Update script with new message"
+    - And only way to preserve them both was to make a 'unifying' commit - the *merge commit*
+- Essentially, we have tied the snake back together
+- Also, let's remove the feature branch, as now we have it 'in master'
+    - `git branch -d feature-readme`
+
+
