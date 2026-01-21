@@ -135,3 +135,18 @@
 - Great, now we have our branch "feature-add-script-file" with a *commit* "Add index.js file"
     - What happened? We have created a new *commit*, said its parent is "Update file.txt"
         - Also git set the head of the "linked list snake" of our branch to the latest commmit, so the "Add index.js file"
+
+## Lets travel back in time, sort of
+- Well, this is great, but what if we now want to go back into our "master" - the one without the script file?
+- Simple, run `git switch master`
+    - Boom - now our "index.js" file is gone - NOOO?
+        - Or is it really?
+- Now, we have just switched to another *branch* - to "master"
+    - So basically to the *commit* is just different now - it points to the "Update file.txt" now
+- We can easily go back to the feature branch
+    - `git switch feature-add-script-file`
+    - Wooow, no way - the "index.js" is here?
+- We have now changed the pointer again - this time, the pointer of *branch* "feature-add-script-file" points to commit "Add index.js file"
+- So essentially, we have traveled back in time and back, woah!
+
+
