@@ -250,3 +250,30 @@
     - You can define the path as absolute or relative, I'll use relative in this example
     - `git remote add origin ../sample-repo-server`
 - Great we have now successfully defined a *remote*
+
+
+## But how to remote?
+- We have defined our *remote*, great, but how do we make sure our local files are on the server now?
+- Simply, lets *push* our changes on the server
+    - `git push -u origin master`
+        - With this command, we are pushing onto *remote* "origin" our local branch "master"
+- Now several things have happened
+    - Our git changes are now in the "sample-repo-server" folder
+        - Not the literal files - basically, the .git folder is not 'same' as the one in the "sample-repo-server" folder
+    - Git has created a new *branch* called origin/master
+        - This branch is basically a local snapshot of server - on this later on
+- Lets try making new commit and pushing it
+    - Add new file named another_file.txt
+        - `echo "Some text" > another_file.txt`
+    - *Stage* it
+        - `git add another_file.txt`
+    - *Commit* it
+        - `git commit -m "Add another text file"`
+- Now, we need to make sure this commit is *pushed* onto server
+    - `git push -u origin master`
+- What that does now
+    - We have one new commit, it takes this commit and adds it to the server *repository*, updating the "master" *branch* pointer there
+    - Once this is confirmed, the local snapshot - "origin/master" is updated (the pointer changes)
+- And so at this point, the local repository and remote are 'SAME GREAT AGAIN'
+
+
