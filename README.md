@@ -102,4 +102,8 @@
         - You can also see the commits and "master" *branch* name in the VS Code - Source Control - Graph
 - With this, when we commit, the "master" *branch* is always pointing to the head of the "linked list snake"
 
-
+## Great, but what are branches for?
+- Well, lets suppose we have a big project
+    - And there are many feature, your work on feature 1 and suddenly, you would like to work on feature 2 and hop a quickly from feature to feature
+- Well, with this, you can - you can have many *branches* where at each branch you do different work
+    - You can have different commits on each branch - so the work is segregated
