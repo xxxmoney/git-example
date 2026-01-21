@@ -124,7 +124,14 @@
 - Well, not much changed, lets check the status
     `git status`
 - And truly, you can see we are on different branch
-- As of now, the "master" and "feature-add-script-file" are pointing to the same commit
+- As of now, the "master" and "feature-add-script-file" are pointing to the same *commit* "Update file.txt"
 
 ## Commits in new branch
-- 
+- Now we have our "feature-add-script-file" branch - from its name, we can guess what we will do now
+- Lets try creating a new .js script file with some content, *staging* it and commiting it
+    - Create an index.js file `echo "console.log('Nope, no hello for you, hmph')" > index.js`
+    - *Stage* it: `git add index.js`
+    - Commit the file, something like `git commit -m "Add index.js file"`
+- Great, now we have our branch "feature-add-script-file" with a *commit* "Add index.js file"
+    - What happened? We have created a new *commit*, said its parent is "Update file.txt"
+        - Also git set the head of the "linked list snake" of our branch to the latest commmit, so the "Add index.js file"
