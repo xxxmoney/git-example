@@ -60,3 +60,9 @@
 - So let's do it now - let's turn our current *staged* into new *commit*
     - `git commit -m "Initial commit"`
 - And behold - we have successfully created our first saved version in history!
+
+## Lets try some restore
+- Now lets suppose we update our file again
+    - Lets try adding new line "Another update"
+- The file should be now in *changes* - this change is NOT *tracked*
+- Lets track it with `git add file.txt`
