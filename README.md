@@ -149,4 +149,15 @@
 - We have now changed the pointer again - this time, the pointer of *branch* "feature-add-script-file" points to commit "Add index.js file"
 - So essentially, we have traveled back in time and back, woah!
 
+## Lets finish our branch
+- As we are probably confused, lets look in which branch we are now
+    - `git status`
+    - Should be the "feature-add-script-file"
+- Now, let's also add one more *commit* - lets change the weird message in the console.log
+    - Let's change it to "Hello cruel world xd"
+- Repeating the process again, *stage* the file and commit
+    - `git add index.js`
+    - `git commit -m "Update script with new message"`
+- Great now our *branch* "has two commits"
+    - Or rather, we are pointing to the latest commit
 
