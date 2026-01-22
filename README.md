@@ -366,13 +366,19 @@ fatal: unable to auto-detect email address (got 'user@pc.(none)')
     - One of the important ones is the visibility - that's if the repository is visible to only you (or chosen ones) or everyone
 - Once we have the repository set up, we can copy the link to the .git
     - For example `https://github.com/[USERNAME]/sample-repo.git`
-- Now lets change our *remote* "origin" to this
-    - `git remote set-url origin https://github.com/[USERNAME]/sample-repo.git`
+- Now let's change our *remote* "origin"
+    - First, we need to obtain a *token* to gain permission to modify the *remote* repository
+        - To get one go the GitHub click your profile icon > Settings > Developer settings > Personal access tokens or just click [this link](https://github.com/settings/tokens) to save you some time
+            - Choose "Fine-grained tokens" and then click on the "Generate new token" button
+            - Change the "Repository access" to "All repositories" or "Only selected repositories" (in the latter case, pick sample-repo from the list)
+            - Locate the "Add permissions" button and make sure that "Contents" is checked AND is set to "Access: Read and write"
+    - After you finally obtain the *token*, you can run `git remote set-url origin https://[USERNAME]:[TOKEN]@github.com/[USERNAME]/sample-repo.git`
 - We can check if we set it up correctly
     - `git remote -v`
 - Great, now we should have the connection set up, lets push our changes to GitHub
     - `git push -u origin master`
 - Fantastic, now we have our *repository* on GitHub!
+    - If you got some kind of an "access denied" error, double check that you've set the *remote* origin correctly
 - We could now work similarly - our colleague could do a similar thing, push changes, we could *pull* (*fetch* and *merge*), etc
 - Let's now try making a new *commit* and *pushing*
     - `rm square.js`
