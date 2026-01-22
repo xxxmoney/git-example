@@ -87,7 +87,7 @@ fatal: unable to auto-detect email address (got 'user@pc.(none)')
     - `git config --global user.email "you@example.com"`
     - `git config --global user.name "Your Name"`
 - Both the email and username can be whatever you want
-    - **However!** Since we're going to deal with something called "remote repositories", it is strongly recommended you [sign up for github](https://github.com/signup) if you don't have an account already and use the same credentials as there
+    - **However!** Since we're going to deal with something called "remote repositories" later, it is strongly recommended you [sign up for github](https://github.com/signup) if you don't have an account already and use the same credentials as there
         - This will make your changes integrate much better into the website (but more on that later)
     
 ## Lets try some restore
@@ -360,7 +360,7 @@ fatal: unable to auto-detect email address (got 'user@pc.(none)')
 
 ## Making the server REAL
 - So far, we have used a local server - just a folder, let's step this up
-- Firstly, setup an account on GitHub (https://github.com)
+- Firstly, setup an account on GitHub (https://github.com), if you haven't done so already
 - We then create a new repository - let's name it same as our folder - sample-repo
     - Let's use the defaults
     - One of the important ones is the visibility - that's if the repository is visible to only you (or chosen ones) or everyone
