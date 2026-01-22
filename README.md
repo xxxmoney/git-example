@@ -66,6 +66,30 @@
     - `git branch -M master`
 - And behold - we have successfully created our first saved version in history!
 
+### Author identity unknown?
+- Unless you've already set-up git on your PC (or someone has done it for you) you will see a message similar to this:
+```
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'user@pc.(none)')
+```
+- Thankfully, it tells you exactly what commands you need to run
+    - `git config --global user.email "you@example.com"`
+    - `git config --global user.name "Your Name"`
+- Both the email and username can be whatever you want
+    - **However!** Since we're going to deal with something called "remote repositories", it is strongly recommended you [sign up for github](https://github.com/signup) if you don't have an account already and use the same credentials as there
+        - This will make your changes integrate much better into the website (but more on that later)
+    
 ## Lets try some restore
 - Now lets suppose we update our file again
     - Lets try adding new line "Another update"
